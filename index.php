@@ -1,0 +1,285 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Event Western</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
+            <i class="bi bi-geo-alt-fill text-primary me-2"></i>Event Western
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link px-3 fw-bold active" href="index.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="events.php">Events</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="gallery.php">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="community.php">Community</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="contact.php">Contact US</a></li>
+                
+                <?php if (isset($_SESSION["user_id"])): ?>
+                    <li class="nav-item"><a class="nav-link px-3 fw-bold text-warning" href="#"><i class="bi bi-person-circle"></i> <?php echo htmlspecialchars($_SESSION["username"]); ?></a></li>
+                    <li class="nav-item"><a class="nav-link px-3 fw-bold text-danger" href="auth/logout.php">Logout</a></li>
+                <?php
+else: ?>
+                    <li class="nav-item"><a class="nav-link px-3 fw-bold text-info" href="auth/login.php">Login / Register</a></li>
+                <?php
+endif; ?>
+                <li class="nav-item d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                    <button class="btn btn-outline-light btn-sm" id="themeToggle" aria-label="Toggle Dark Mode">
+                        <i class="bi bi-moon-stars-fill"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+  <main>
+    <section class="hero-section text-center py-5" data-aos="fade-down">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Find the best <span id="typing-text" class="text-primary"></span><span class="typing-cursor">|</span></h1>
+            <p class="lead text-muted mb-4">Discover the most exciting events happening across the Western Province.</p>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8">
+                    <form class="d-flex shadow-sm rounded bg-white p-2 border-0 search-form" role="search">
+                        <input class="form-control form-control-lg me-2 border-0 bg-transparent" type="search" placeholder="Search for events in Colombo, Gampaha, or Kalutara..." aria-label="Search" style="box-shadow: none;">
+                        <button class="btn btn-primary btn-lg px-4 fw-bold shadow-sm" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+
+            
+            <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card border-0 shadow-sm countdown-card bg-primary text-white p-4 rounded-4">
+                        <h6 class="text-uppercase mb-3 fw-bold tracking-wide" style="letter-spacing: 1px;"><i class="bi bi-star-fill text-warning me-2"></i>Next Featured Event</h6>
+                        <div id="countdown" class="d-flex justify-content-center gap-4 text-center">
+                            <div>
+                                <span class="fs-1 fw-bold" id="days">00</span>
+                                <div class="small text-uppercase opacity-75">Days</div>
+                            </div>
+                            <span class="fs-1 fw-bold opacity-50">:</span>
+                            <div>
+                                <span class="fs-1 fw-bold" id="hours">00</span>
+                                <div class="small text-uppercase opacity-75">Hours</div>
+                            </div>
+                            <span class="fs-1 fw-bold opacity-50">:</span>
+                            <div>
+                                <span class="fs-1 fw-bold" id="minutes">00</span>
+                                <div class="small text-uppercase opacity-75">Mins</div>
+                            </div>
+                            <span class="fs-1 fw-bold opacity-50">:</span>
+                            <div>
+                                <span class="fs-1 fw-bold" id="seconds">00</span>
+                                <div class="small text-uppercase opacity-75">Secs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </main>
+
+   <div id="carouselExampleAutoplaying" class="carousel slide container mt-4 shadow rounded overflow-hidden" data-bs-ride="carousel" data-aos="zoom-in">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/Meetups/iee.jpg" class="d-block w-100" alt="IEEE Event" style="height: 500px; object-fit: cover;">
+            </div>
+            <div class="carousel-item">
+                <img src="images/musical/nadaga/naadha.jpg" class="d-block w-100" alt="Musical Event" style="height: 500px; object-fit: cover;">
+            </div>
+            <div class="carousel-item"> 
+                <img src="images/big_match/maroons/battle.webp" class="d-block w-100" alt="Flashmob Event" style="height: 500px; object-fit: cover;">
+            </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <section class="container my-5">
+    <h2 class="text-center mb-4" data-aos="fade-up">Explore Events by District</h2>
+    <div class="row">
+        
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 shadow">
+                <img src="images/town/colombo.jpg" class="card-img-top" alt="Colombo">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Colombo</h5>
+                    <p class="card-text">The heart of the action. Concerts, tech events, and more.</p>
+                    <a href="events.php?search= Colombo" class="btn btn-primary">Browse Colombo</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 shadow">
+                <img src="images/town/gampaha.jpg" class="card-img-top" alt="Gampaha">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Gampaha</h5>
+                    <p class="card-text">Cultural festivals and community gatherings.</p>
+                    <a href="events.php?search= Gampaha" class="btn btn-primary">Browse Gampaha</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 shadow">
+                <img src="images/town/kaluthara.jpg" class="card-img-top" alt="Kalutara">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Kalutara</h5>
+                    <p class="card-text">Relaxing beach events and traditional ceremonies.</p>
+                    <a href="events.php?search= Kalutara" class="btn btn-primary">Browse Kalutara</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+   <section class="testimonials py-5 bg-light" data-aos="fade-up">
+    <div class="container">
+        <h2 class="text-center mb-5">User Experiences</h2>
+        
+        <div id="testimonialCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active text-center">
+                    <img src="https://i.pravatar.cc/100?u=1" class="rounded-circle shadow mb-4" alt="User" width="100">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h5 class="mb-1">Kamal Perera</h5>
+                            <p class="text-warning mb-3">★★★★★</p>
+                            <p class="lead italic">"The best platform for finding weekend events in Gampaha. The interface is so smooth!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="https://i.pravatar.cc/100?u=2" class="rounded-circle shadow mb-4" alt="User" width="100">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h5 class="mb-1">Senandi Silva</h5>
+                            <p class="text-warning mb-3">★★★★☆</p>
+                            <p class="lead italic">"Registering our university flashmob was very easy. Highly recommended for students."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="https://i.pravatar.cc/100?u=3" class="rounded-circle shadow mb-4" alt="User" width="100">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h5 class="mb-1">Nimal Jayasinghe</h5>
+                            <p class="text-warning mb-3">★★★★★</p>
+                            <p class="lead italic">"I never miss a musical show now. The notification system for Colombo events is top-tier!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="https://i.pravatar.cc/100?u=4" class="rounded-circle shadow mb-4" alt="User" width="100">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h5 class="mb-1">Dilini Fonseka</h5>
+                            <p class="text-warning mb-3">★★★★★</p>
+                            <p class="lead italic">"Perfect for finding local workshops in Kalutara. Great community vibe!"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="https://i.pravatar.cc/100?u=5" class="rounded-circle shadow mb-4" alt="User" width="100">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <h5 class="mb-1">Arjun Wickrama</h5>
+                            <p class="text-warning mb-3">★★★★☆</p>
+                            <p class="lead italic">"Excellent support for ticket bookings. Looking forward to more features in Phase 3."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="carousel-indicators" style="position: relative; margin-top: 20px;">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active bg-dark"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="bg-dark"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" class="bg-dark"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3" class="bg-dark"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4" class="bg-dark"></button>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Event Western</h5>
+                <p>Your one-stop platform to discover and register for the best events in the Western Province of Sri Lanka.</p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Quick Links</h5>
+                <p><a href="index.php" class="text-white" style="text-decoration: none;">Home</a></p>
+                <p><a href="events.php" class="text-white" style="text-decoration: none;">Events</a></p>
+                <p><a href="community.php" class="text-white" style="text-decoration: none;">Community</a></p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center text-md-start">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contact</h5>
+                <p><i class="bi bi-house-door-fill me-2"></i> RUSL, Mihintale</p>
+                <p><i class="bi bi-envelope-fill me-2"></i> info@eventwestern.lk</p>
+                <p><i class="bi bi-telephone-fill me-2"></i> +94 11 234 5678</p>
+            </div>
+
+        </div>
+
+        <hr class="mb-4">
+
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p>© 2026 Copyright: <strong>Event_Western</strong></p>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
