@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | Event Western</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+            <i class="bi bi-geo-alt-fill text-primary me-2"></i>Event Western
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="events.html">Events</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold active" href="community.html">Community</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="contact.html">Contact US</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold text-info" href="auth/login.html">Login / Register</a></li>
+                <li class="nav-item d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                    <button class="btn btn-outline-light btn-sm" id="themeToggle" aria-label="Toggle Dark Mode">
+                        <i class="bi bi-moon-stars-fill"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container my-5">
+    <div class="row">
+        
+        <div class="col-lg-3 mb-4" data-aos="fade-right">
+            <div class="card border-0 shadow-sm text-center rounded-4 overflow-hidden">
+                <div class="position-relative mb-5">
+                    <img src="https://picsum.photos/id/10/400/200" class="w-100" style="height: 120px; object-fit: cover;" alt="Banner">
+                    <img src= "../images/Town/1.png" class="rounded-circle shadow border border-4 border-white position-absolute" alt="Profile" style="bottom: -40px; left: 50%; transform: translateX(-50%); width: 80px; height: 80px;">
+                </div>
+                <div class="card-body pt-2">
+                    <h5 class="fw-bold mb-1">Event_Western Community</h5>
+                    <p class="text-muted small mb-3"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Western Province Local</p>
+                    <hr class="text-muted opacity-25">
+                    <div class="d-flex justify-content-between px-2 text-center">
+                        <div><h5 class="mb-0 fw-bold text-primary">1.2k</h5><small class="text-muted">Connections</small></div>
+                        <div><h5 class="mb-0 fw-bold text-primary">45</h5><small class="text-muted">Events</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card border-0 shadow-sm mb-4 rounded-4">
+                <div class="card-body p-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-pencil-square text-primary me-2"></i>Share an Update</h6>
+                    <form id="communityPostForm">
+                        <textarea id="postContent" class="form-control border-0 bg-light p-3 mb-3 rounded-3" rows="3" placeholder="What's happening in the Western Province?" style="box-shadow: none; resize: none;"></textarea>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-light btn-sm rounded-pill text-secondary fw-bold px-3"><i class="bi bi-image text-success me-1"></i>Photo</button>
+                                <button type="button" class="btn btn-light btn-sm rounded-pill text-secondary fw-bold px-3"><i class="bi bi-geo-alt text-danger me-1"></i>Location</button>
+                            </div>
+                            <button type="button" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Post Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="communityFeed">
+                
+                <div class="card border-0 shadow-sm mb-4 rounded-4 post-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://i.pravatar.cc/50?u=1" class="rounded-circle me-3 shadow-sm" alt="User">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Kamal Perera</h6>
+                                <small class="text-muted">2 hours ago • Colombo</small>
+                            </div>
+                            <button class="btn btn-light btn-sm ms-auto rounded-circle"><i class="bi bi-three-dots"></i></button>
+                        </div>
+                        <p class="mb-3">Just attended the Aloka Musical Night! The organization by Group 03 was top-tier. Highly recommended! 🎶 This was definitely the highlight of my weekend.</p>
+                        
+                        <div class="bg-light p-3 rounded-3 mb-3 d-flex align-items-center gap-3 border">
+                            <img src="../images/musical/aloka.jpg" class="rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0 fw-bold small">Aloka Musical Night</h6>
+                                <small class="text-muted">Nelum Pokuna</small>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-4 border-top pt-3 mt-2">
+                            <button class="btn btn-link text-decoration-none text-secondary p-0 fw-bold like-btn"><i class="bi bi-heart me-1"></i> 24 Likes</button>
+                            <button class="btn btn-link text-decoration-none text-secondary p-0 fw-bold"><i class="bi bi-chat me-1"></i> 5 Comments</button>
+                            <button class="btn btn-link text-decoration-none text-secondary p-0 fw-bold ms-auto"><i class="bi bi-share me-1"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="col-lg-3" data-aos="fade-left" data-aos-delay="200">
+            <div class="card border-0 shadow-sm p-4 mb-4 rounded-4 sticky-top" style="top: 100px;">
+                <h6 class="fw-bold mb-4"><i class="bi bi-graph-up-arrow text-primary me-2"></i>Trending Now</h6>
+                
+                <div class="trending-item mb-3 p-2 rounded" style="transition: 0.2s; cursor: pointer;">
+                    <p class="mb-0 small fw-bold text-primary">#BigMatch2026</p>
+                    <small class="text-muted">450 posts</small>
+                </div>
+                <div class="trending-item mb-3 p-2 rounded" style="transition: 0.2s; cursor: pointer;">
+                    <p class="mb-0 small fw-bold text-primary">#MusicalColombo</p>
+                    <small class="text-muted">210 posts</small>
+                </div>
+                <div class="trending-item p-2 rounded" style="transition: 0.2s; cursor: pointer;">
+                    <p class="mb-0 small fw-bold text-primary">#ICTMeetup</p>
+                    <small class="text-muted">89 posts</small>
+                </div>
+
+                <hr class="text-muted opacity-25">
+                <p class="small text-muted mb-0"><a href="#" class="text-decoration-none fw-bold">Show more topics</a></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Event Western</h5>
+                <p>Your one-stop platform to discover and register for the best events in the Western Province of Sri Lanka.</p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Quick Links</h5>
+                <p><a href="index.html" class="text-white" style="text-decoration: none;">Home</a></p>
+                <p><a href="events.html" class="text-white" style="text-decoration: none;">Events</a></p>
+                <p><a href="community.html" class="text-white" style="text-decoration: none;">Community</a></p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center text-md-start">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contact</h5>
+                <p><i class="bi bi-house-door-fill me-2"></i> RUSL, Mihintale</p>
+                <p><i class="bi bi-envelope-fill me-2"></i> info@eventwestern.lk</p>
+                <p><i class="bi bi-telephone-fill me-2"></i> +94 11 234 5678</p>
+            </div>
+
+        </div>
+
+        <hr class="mb-4">
+
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p>© 2026 Copyright: <strong>Event_Western</strong></p>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

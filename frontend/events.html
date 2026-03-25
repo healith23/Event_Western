@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Event Western</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+            <i class="bi bi-geo-alt-fill text-primary me-2"></i>Event Western
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold active" href="events.html">Events</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="community.html">Community</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold" href="contact.html">Contact US</a></li>
+                <li class="nav-item"><a class="nav-link px-3 fw-bold text-info" href="auth/login.html">Login / Register</a></li>
+                <li class="nav-item d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
+                    <button class="btn btn-outline-light btn-sm" id="themeToggle" aria-label="Toggle Dark Mode">
+                        <i class="bi bi-moon-stars-fill"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+   <main class="container-fluid py-5 px-4">
+    <div class="row">
+        
+        <div class="col-lg-3 col-md-4 mb-4" data-aos="fade-right">
+            <div class="card shadow-sm border-0 p-4 sticky-top" style="top: 100px;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Filters</h5>
+                    <button class="btn btn-sm text-primary p-0">Clear all</button>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small fw-bold text-uppercase">Search Keyword</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control border-start-0" placeholder="e.g. Musical">
+                    </div>
+                    <label class="form-label small fw-bold text-uppercase">Date Range</label>
+                <div class="mb-2">
+                    <label class="small text-muted">From:</label>
+                    <input type="date" id="dateFrom" class="form-control form-control-sm">
+                 </div>
+    <div>
+        <label class="small text-muted">To:</label>
+        <input type="date" id="dateTo" class="form-control form-control-sm">
+    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small fw-bold text-uppercase">District</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="district" id="all" checked>
+                        <label class="form-check-label" for="all">All Districts</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="district" id="colombo">
+                        <label class="form-check-label" for="colombo">Colombo</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="district" id="gampaha">
+                        <label class="form-check-label" for="gampaha">Gampaha</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="district" id="kalutara">
+                        <label class="form-check-label" for="kalutara">Kalutara</label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small fw-bold text-uppercase">Category</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cat1">
+                        <label class="form-check-label" for="cat1">Musical</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cat2">
+                        <label class="form-check-label" for="cat2">Sports</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cat3">
+                        <label class="form-check-label" for="cat3">Meetups</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cat4">
+                        <label class="form-check-label" for="cat4">Drama</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cat5">
+                        <label class="form-check-label" for="cat5">Big Match</label>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary w-100 mt-2 py-2 fw-bold">Apply Filters</button>
+            </div>
+        </div>
+
+        <div class="col-lg-9 col-md-8">
+    <h2 class="fw-bold mb-4" data-aos="fade-down">Upcoming Events</h2>
+    
+   <div class="row g-4">
+            <div class="col-xl-4 col-lg-6 event-card" data-date="2026-05-15" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                    <div class="position-absolute bg-primary text-white px-3 py-1 m-2 rounded-pill small fw-bold">Musical</div>
+                    <img src="../images/musical/aloka.jpg" class="card-img-top" alt="Example Event" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Example Event</h5>
+                        <p class="small text-muted mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Colombo</p>
+                        <p class="card-text small text-secondary">This is a placeholder description for the statically generated frontend.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold">May 15</span>
+                            <button type="button" class="btn btn-primary btn-sm px-3" data-bs-toggle="modal" data-bs-target="#eventModal">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+</main>
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Event Western</h5>
+                <p>Your one-stop platform to discover and register for the best events in the Western Province of Sri Lanka.</p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Quick Links</h5>
+                <p><a href="index.html" class="text-white" style="text-decoration: none;">Home</a></p>
+                <p><a href="events.html" class="text-white" style="text-decoration: none;">Events</a></p>
+                <p><a href="community.html" class="text-white" style="text-decoration: none;">Community</a></p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3 text-center text-md-start">
+                <h5 class="text-uppercase mb-4 font-weight-bold text-primary">Contact</h5>
+                <p><i class="bi bi-house-door-fill me-2"></i> RUSL, Mihintale</p>
+                <p><i class="bi bi-envelope-fill me-2"></i> info@eventwestern.lk</p>
+                <p><i class="bi bi-telephone-fill me-2"></i> +94 11 234 5678</p>
+            </div>
+
+        </div>
+
+        <hr class="mb-4">
+
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8">
+                <p>© 2026 Copyright: <strong>Event_Western</strong></p>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="bi bi-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg overflow-hidden">
+            <img src="" id="modalImage" class="img-fluid" style="height: 250px; object-fit: cover;">
+            <div class="p-4 text-center"> <h4 class="fw-bold modal-title mb-2" id="modalTitle"></h4>
+                
+                <p id="modalLocationContainer" class="mb-2">
+                    <i class="bi bi-geo-alt-fill text-primary"></i> 
+                    <a id="modalLocationLink" href="#" target="_blank" class="text-decoration-none fw-bold small"></a>
+                </p>
+
+                <p id="modalDescription" class="text-muted small mb-4"></p>
+                
+                <div class="d-flex justify-content-between">
+                   <button type="button" 
+        class="btn btn-primary px-4 fw-bold" 
+        data-bs-toggle="modal" 
+        data-bs-target="#registerModal">
+    Register Now
+</button>
+                    <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+<div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg">
+      <div class="modal-header bg-primary text-white border-0">
+        <h5 class="modal-title fw-bold">Event Registration</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="registrationForm" onsubmit="event.preventDefault(); alert('Registration functionality simulated.');">
+            <div class="mb-3">
+                <label class="form-label small fw-bold">Full Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-bold">Email Address</label>
+                <input type="email" class="form-control" placeholder="name@example.com" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-bold">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="07X XXXXXXX" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-bold">Number of Tickets</label>
+                <input type="number" class="form-control" min="1" max="5" value="1">
+            </div>
+            <button type="submit" class="btn btn-primary w-100 fw-bold py-2 mt-3">Confirm Registration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/script.js"></script>
+
+   
+</body>
+</html>
